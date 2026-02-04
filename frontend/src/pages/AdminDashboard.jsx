@@ -266,13 +266,13 @@ const AdminDashboard = () => {
                         .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
                         .map((user) => (
                           <tr key={user._id}>
-                            <td>{user.name}</td>
-                            <td>{user.email}</td>
-                            <td>
+                            <td data-label="Name">{user.name}</td>
+                            <td data-label="Email">{user.email}</td>
+                            <td data-label="Role">
                               <span className={`badge badge-${user.role}`}>{user.role}</span>
                             </td>
-                            <td>{new Date(user.createdAt).toLocaleDateString()}</td>
-                            <td>
+                            <td data-label="Created At">{new Date(user.createdAt).toLocaleDateString()}</td>
+                            <td data-label="Actions">
                               <button
                                 className="btn-edit"
                                 onClick={() => openUserModal('edit', user)}
@@ -341,18 +341,18 @@ const AdminDashboard = () => {
                         .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
                         .map((product) => (
                           <tr key={product._id}>
-                            <td>
+                            <td data-label="Image">
                               <img
                                 src={product.imageUrl}
                                 alt={product.name}
                                 className="product-thumbnail"
                               />
                             </td>
-                            <td>{product.name}</td>
-                            <td className="description-cell">{product.description}</td>
-                            <td>${product.price.toFixed(2)}</td>
-                            <td>{new Date(product.createdAt).toLocaleDateString()}</td>
-                            <td>
+                            <td data-label="Name">{product.name}</td>
+                            <td data-label="Description" className="description-cell">{product.description}</td>
+                            <td data-label="Price">Rs{product.price.toFixed(2)}</td>
+                            <td data-label="Created At">{new Date(product.createdAt).toLocaleDateString()}</td>
+                            <td data-label="Actions">
                               <button
                                 className="btn-edit"
                                 onClick={() => openProductModal('edit', product)}
